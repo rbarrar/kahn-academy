@@ -1,9 +1,9 @@
-def swap (array, firstIndex, secondIndex)
-  temp = array[firstIndex]
-  array[firstIndex] = array[secondIndex]
-  array[secondIndex] = temp
+def swap (array, first_index, second_index)
+  temp = array[first_index]
+  array[first_index] = array[second_index]
+  array[second_index] = temp
   p array
 end
 
-testArray = [7, 9, 4]
-swap(testArray, 0, 1)
+test_array = [7, 9, 4]
+swap(test_array, 0, 1)
