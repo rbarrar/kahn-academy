@@ -1,21 +1,24 @@
 var insert = function(array, rightIndex, value) {
-    var index;
-    for(index=rightIndex; (index>=0)&&(value < array[index]); index--){
-        array[index+1] = array[index];
+    for(var j = rightIndex;
+        j >= 0 && array[j] > value;
+        j--) {
+        array[j + 1] = array[j];
     }
-    array[index+1]=value;
+    array[j + 1] = value;
 };
 
-var array = [3, 5, 7, 11, 13, 2, 9, 6];
+var insertionSort = function(array) {
+    for(var i = 1; i < array.length; i ++){
+        insert(array, i-1, array[i]);
+    }
+};
 
-insert(array, 4, 2);
-println("Array after inserting 2:  " + array);
-Program.assertEqual(array, [2, 3, 5, 7, 11, 13, 9, 6]);
+var array = [22, 11, 99, 88, 9, 7, 42];
+insertionSort(array);
+println("Array after sorting:  " + array);
+Program.assertEqual(array, [7, 9, 11, 22, 42, 88, 99]);
 
-insert(array, 5, 9);
-println("Array after inserting 9:  " + array);
-Program.assertEqual(array, [2, 3, 5, 7, 9, 11, 13, 6]);
-
-insert(array, 6, 6);
-println("Array after inserting 6:  " + array);
-Program.assertEqual(array, [2, 3, 5, 6, 7, 9, 11, 13]);
+var newArray = [33, -1, 10, 0, 5, 7, 48, 22];
+insertionSort(newArray);
+println("Array after sorting:  " + newArray);
+Program.assertEqual(newArray, [-1, 0, 5, 7, 10, 22, 33, 48]);
